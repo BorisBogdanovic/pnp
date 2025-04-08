@@ -4,6 +4,7 @@ import Login from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import { AuthProvider } from "./providers/AuthProviders";
 import { UserProvider } from "./providers/UserProvider";
+import { ClientProvider } from "./providers/ClientProvider";
 
 import ClientsPage from "./pages/ClientsPage";
 import UsersPage from "./pages/UsersPage";
@@ -25,10 +26,23 @@ function App() {
 
                         <Route element={<ProtectedRoute />}>
                             <Route index element={<HomePage />} />
-                            <Route path="klijenti" element={<ClientsPage />} />
+
+                            <Route
+                                path="klijenti"
+                                element={
+                                    <ClientProvider>
+                                        <ClientsPage />
+                                    </ClientProvider>
+                                }
+                            />
+
                             <Route
                                 path="kreiraj-klijenta"
-                                element={<CreateClinentPage />}
+                                element={
+                                    <ClientProvider>
+                                        <CreateClinentPage />
+                                    </ClientProvider>
+                                }
                             />
 
                             <Route path="prodavci" element={<UsersPage />} />
@@ -42,6 +56,7 @@ function App() {
                             />
                             <Route path="*" element={<NotFoundPage />} />
                         </Route>
+
                         <Route
                             path="/invalid-token"
                             element={<NotValitTokenPage />}

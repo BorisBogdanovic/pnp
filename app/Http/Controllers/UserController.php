@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Invite;
 use App\Http\Requests\FiterUserRequest;
+use App\Http\Requests\EditUserRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -48,6 +50,22 @@ public function deleteUser(User $user)
     ]);
 }
 
+public function editUser( EditUserRequest $request)
+{
+
+    $user = Auth::user();
+    $user->update($request->all());
+
+   
+
+    return response()->json([
+        'status' => true,
+        'data' => $user,
+        'message' => 'The user has been updated successfully'
+    ]);
 }
+
+}
+
 
         

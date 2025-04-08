@@ -16,7 +16,7 @@ function Sidebar() {
     };
 
     return (
-        <nav className="w-[312px] h-screen bg-white fixed py-8 px-4 flex flex-col justify-between">
+        <nav className="w-[312px] h-screen bg-white fixed py-8 px-4 flex flex-col justify-between shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] ">
             <div>
                 <Link to="/">
                     <div className="px-12 flex justify-center">

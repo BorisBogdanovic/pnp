@@ -14,6 +14,11 @@ Route::get('users', [\App\Http\Controllers\UserController::class, 'getAllUsers']
 Route::post('invite-user', [\App\Http\Controllers\AuthController::class, 'sendInvite'])->middleware('auth:sanctum');
 
 Route::delete('user/{user}', [\App\Http\Controllers\UserController::class, 'deleteUser'])->middleware('auth:sanctum');
+Route::patch('user', [\App\Http\Controllers\UserController::class, 'editUser'])->middleware('auth:sanctum');
+
+
+
+Route::get('clients', [\App\Http\Controllers\ClientController::class, 'getAllClients'])->middleware('auth:sanctum');
 
 
 

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ButtonMain from "./ButtonMain";
+import { Link } from "react-router-dom";
 
 import UsersFilterBar from "./UsersFilterBar";
 import UsersList from "./UsersList";
 import Paginaton from "./Paginaton";
-import { Link } from "react-router-dom";
+
 import { useUser } from "../providers/UserProvider";
 import EmptyUsersList from "./EmptyUsersList";
 import DeleteModal from "./DeleteModal";
